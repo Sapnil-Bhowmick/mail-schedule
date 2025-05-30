@@ -5,20 +5,12 @@ const { generateCSVData } = require('./generateCSV');
 
 
 
-console.log("Inside cronjob")
-
-
-cron.schedule('* 23 * * *', async() => {
-    console.log("Shduling - " + new Date())
+cron.schedule('0 9 * * *', async() => {
     const csvFilePath = await generateCSVData()
     await sendMail("sapnilfrontend23@gmail.com" , csvFilePath)
 });
 
 
-// const generate = async() => {
-//     const csvFilePath = await generateCSVData()
-// }
 
-// generate()
 
 
