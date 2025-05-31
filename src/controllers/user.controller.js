@@ -7,7 +7,8 @@ const registerUser = async (req, res, next) => {
         const now = new Date();
         const currentHour = now.getHours(); 
 
-        if (currentHour <= 17) {
+        // No registrations allowed after 5PM
+        if (currentHour >= 17) {
             return res.json({
                 message: "Registrations are closed for today. Please try again tomorrow before 5 PM."
             });
